@@ -17,6 +17,7 @@ const btnNine = document.querySelector('#btn-9');
 const btnZero = document.querySelector('#btn-0');
 
 //operators
+const btnOperator = document.querySelectorAll('.operators');
 const btnPlus = document.querySelector('#btn-plus');
 const btnMinus = document.querySelector('#btn-minus');
 const btnMult = document.querySelector('#btn-mult');
@@ -27,6 +28,8 @@ const btnClr = document.querySelector('#btn-clear');
 //display
 const displayGet = document.querySelector('#display');
 let displayValue = '';
+let num1;
+let num2;
 
 function updateDisplay(){
     displayGet.textContent = displayValue;
@@ -92,7 +95,16 @@ btnZero.addEventListener('click' , () => {
     updateDisplay();
 });
 
-
+btnOperator.forEach(button => {
+    button.addEventListener('click' , function(e){
+          num1 = displayValue;
+          displayValue = '';  
+          console.log('value of num1 is ' + num1);
+          console.log('value of displayValue is ' + displayValue);
+          e.stopPropagation();
+          e.preventDefault();
+    })    
+});
 
 
 
